@@ -2,7 +2,8 @@
 
 
 ## Explicación del backend PocketBase
-https://davidgalisteo.es/wp-content/uploads/2023/03/backend-de-la-suerte-2023.mp4
+[![Texto alternativo del video](https://davidgalisteo.es/wp-content/uploads/2023/03/video.png)](https://davidgalisteo.es/wp-content/uploads/2023/03/backend-de-la-suerte-2023.mp4)
+
 
 > Desafío de programación dividido en tres retos donde los participantes tendrán que trabajar con el backend que les toque en suerte, aunque podrán elegir el lenguaje de programación con el que quieren trabajar. 
 
