@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import pb from "@/lib/pocketbase";
 
-function formatDate(timestamp) {
+function formatDate(timestamp:string) {
     const date = new Date(timestamp);
     const day = date.getDate().toString().padStart(2, "0");
     const month = (date.getMonth() + 1).toString().padStart(2, "0");
@@ -14,8 +14,8 @@ function formatDate(timestamp) {
 }
 
 const mockCommand = {
-  text: "",
-  timestamp: ""
+  text: "test",
+  timestamp: new Date().toString()
 };
 
 const ShowCommand = () => {
@@ -36,7 +36,6 @@ const ShowCommand = () => {
   return (
     <div>
       <h2>Last command:</h2>
-      {/* <p>{lastCommand.text}</p> */}
       <p>{formatDate(lastCommand.timestamp)}</p>
     </div>
   );

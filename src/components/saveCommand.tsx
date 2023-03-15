@@ -1,27 +1,18 @@
 "use client";
 import { useState } from "react";
+import pb from "@/lib/pocketbase";
 
 const SaveCommand = () => {
-  const [command, setCommand] = useState("");
   const [timestamp, setTimestamp] = useState(calculateCurrentTimestamp());
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setTimestamp(calculateCurrentTimestamp());
-    save(command, timestamp);
-    setCommand("");
+    save(timestamp, setLoading);
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      {/* <div>
-        <label htmlFor="command">Command</label>
-        <textarea
-          id="command"
-          value={command}
-          onChange={(event) => setCommand(event.target.value)}
-        />
-      </div> */}
       <div>
         <label htmlFor="timestamp">Date and time</label>
         <input
@@ -31,7 +22,13 @@ const SaveCommand = () => {
           onChange={(event) => setTimestamp(event.target.value)}
         />
       </div>
-      <button type="submit">Save</button>
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <button type="submit" disabled={loading}>
+          Save
+        </button>
+      )}
     </form>
   );
 };
@@ -43,13 +40,23 @@ const calculateCurrentTimestamp = () => {
   )}T${padNumber(now.getHours())}:${padNumber(now.getMinutes())}`;
 };
 
-const padNumber = (number) => {
+const padNumber = (number: Number) => {
   return number.toString().padStart(2, "0");
 };
 
-const save = (command, timestamp) => {
-  // Aquí iría la lógica para guardar la comanda con el timestamp
-  console.log(`Comanda: ${command}, Fecha y Hora: ${timestamp}`);
+const save = async (timestamp: string, setLoading: (value: boolean) => void) => {
+  setLoading(true);
+  // logica para guardar la comanda
+  // ahora mismo sin comanda, solo fecha y hora
+  const data = {
+    "command": "vacio",
+    "timestamp": new Date(timestamp)
+  };
+
+  const record = await pb.collection('commands').create(data).then((result) => {
+    setLoading(false);
+  });
 };
+
 
 export default SaveCommand;
