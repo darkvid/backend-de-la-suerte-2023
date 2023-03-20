@@ -4,6 +4,11 @@
 ## Explicación del backend PocketBase
 [![Texto alternativo del video](https://davidgalisteo.es/wp-content/uploads/2023/03/video.png)](https://davidgalisteo.es/wp-content/uploads/2023/03/backend-de-la-suerte-2023.mp4)
 
+## Menú del Restaurante Zombie
+- ESPECIAL ZOMBIE
+- Carne humana a la parrilla
+- Ensalada de gusanos
+- Cerebro frito con salsa de ojos
 
 > Desafío de programación dividido en tres retos donde los participantes tendrán que trabajar con el backend que les toque en suerte, aunque podrán elegir el lenguaje de programación con el que quieren trabajar. 
 
